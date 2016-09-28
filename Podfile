@@ -1,0 +1,8 @@
+platform:'ios','7.0'
+pod 'SDWebImage','~> 3.6'
+pod 'PubNub', '3.6.1'
+pod 'CocoaLumberjack'
+pod 'RestKit', '~> 0.22.0'
+pod 'Canvas', '~> 0.1'
+pod 'AXRatingView', '~> 0.9.6'
+pod 'TTTAttributedLabel', '~> 1.10'
