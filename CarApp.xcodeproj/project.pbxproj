@@ -2340,8 +2340,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2359,7 +2359,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "4289c60a-544b-491e-bec0-f25ec3e79acf";
+				PROVISIONING_PROFILE = "c2f07df6-725c-4f34-adb4-0a2e8f043c2c";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2381,8 +2381,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2393,7 +2393,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "4289c60a-544b-491e-bec0-f25ec3e79acf";
+				PROVISIONING_PROFILE = "c2f07df6-725c-4f34-adb4-0a2e8f043c2c";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2405,8 +2405,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2421,9 +2421,9 @@
 				GCC_PREFIX_HEADER = "Doctor/CarApp-Prefix.pch";
 				INFOPLIST_FILE = "Doctor/CarApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.CustomAppsTeam.CustomAppsTeam;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appypie.appypie;
 				PRODUCT_NAME = CarApp;
-				PROVISIONING_PROFILE = "4289c60a-544b-491e-bec0-f25ec3e79acf";
+				PROVISIONING_PROFILE = "c2f07df6-725c-4f34-adb4-0a2e8f043c2c";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2435,8 +2435,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
+				DEVELOPMENT_TEAM = MMVGVUJYAG;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2451,9 +2452,10 @@
 				GCC_PREFIX_HEADER = "Doctor/CarApp-Prefix.pch";
 				INFOPLIST_FILE = "Doctor/CarApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.CustomAppsTeam.CustomAppsTeam;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appypie.appypie;
 				PRODUCT_NAME = CarApp;
-				PROVISIONING_PROFILE = "4289c60a-544b-491e-bec0-f25ec3e79acf";
+				PROVISIONING_PROFILE = "c2f07df6-725c-4f34-adb4-0a2e8f043c2c";
+				PROVISIONING_PROFILE_SPECIFIER = "Appypie Inhouse latest";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2464,8 +2466,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2479,7 +2481,7 @@
 				);
 				INFOPLIST_FILE = "DoctorTests/CarAppTests-Info.plist";
 				PRODUCT_NAME = CarAppTests;
-				PROVISIONING_PROFILE = "4289c60a-544b-491e-bec0-f25ec3e79acf";
+				PROVISIONING_PROFILE = "c2f07df6-725c-4f34-adb4-0a2e8f043c2c";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarApp.app/CarApp";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -2490,8 +2492,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2501,7 +2503,7 @@
 				GCC_PREFIX_HEADER = "Doctor/CarApp-Prefix.pch";
 				INFOPLIST_FILE = "DoctorTests/CarAppTests-Info.plist";
 				PRODUCT_NAME = CarAppTests;
-				PROVISIONING_PROFILE = "4289c60a-544b-491e-bec0-f25ec3e79acf";
+				PROVISIONING_PROFILE = "c2f07df6-725c-4f34-adb4-0a2e8f043c2c";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarApp.app/CarApp";
 				WRAPPER_EXTENSION = xctest;
 			};
