@@ -2,6 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>StripeConnectTest</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>com.CustomAppsTeam.CustomAppsTeam</string>
+		</dict>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -34,7 +45,7 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Sigma Driver would like to use your current location so we can send you more accurate results</string>
 	<key>Pushwoosh_APPID</key>
-	<string>0444F-5C437</string>
+	<string>90F6B-C12B7</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Black.ttf</string>

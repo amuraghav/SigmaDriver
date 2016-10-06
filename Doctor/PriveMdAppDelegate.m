@@ -695,6 +695,37 @@ void uncaughtExceptionHandler(NSException *exception) {
 //    }
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    
+    NSError *error;
+    
+    if ([[url scheme] isEqualToString:@"stripeconnecttest"]) {
+        
+        
+        
+        NSString *query = [[url query] stringByRemovingPercentEncoding];
+        query = [query stringByReplacingOccurrencesOfString:@"result=" withString:@""];
+        NSData *data = [query dataUsingEncoding:NSUTF8StringEncoding];
+        
+        
+        id   json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:json forKey:@"StripeData"];
+        
+        
+        if(json){
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"StripeConnected" object:nil];
+        }
+        NSString *errorString = [json objectForKey:@"error"];
+        NSString *accessToken = [json objectForKey:@"access_token"];
+        NSString *stripePubKey = [json objectForKey:@"stripe_publishable_key"];
+        NSString *stripeUserId = [json objectForKey:@"stripe_user_id"];
+        
+        
+    }
+    return YES;
+}
 
 
 

@@ -43,6 +43,7 @@
        NSMutableArray * arrCartype;
        NSMutableArray * arrSeat;
        NSString *pickerTitle;
+    UIButton *stripeConnect;
 }
 @property (assign,nonatomic) BOOL isImageNeedsToUpload;
 @property(nonatomic,strong)CLLocationManager *locationManager;
@@ -159,23 +160,46 @@
     
     //table bottom view
     
-    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 200)];
     UIButton *buttonCheckBox = [UIButton buttonWithType:UIButtonTypeCustom];
-    buttonCheckBox.frame = CGRectMake(25, 65, 34, 34);
+    buttonCheckBox.frame = CGRectMake(25, 50, 34, 34);
     [buttonCheckBox setImage:[UIImage imageNamed:@"signup_btn_checkbox_off"] forState:UIControlStateNormal];
     [buttonCheckBox setImage:[UIImage imageNamed:@"signup_btn_checkbox_on"] forState:UIControlStateSelected];
     [buttonCheckBox addTarget:self action:@selector(checkButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     //Add new check box for pop lock
     UIButton *buttonCheckBoxPoplock = [UIButton buttonWithType:UIButtonTypeCustom];
-    buttonCheckBoxPoplock.frame = CGRectMake(25, 15, 34, 34);
+    buttonCheckBoxPoplock.frame = CGRectMake(25, 5, 34, 34);
     [buttonCheckBoxPoplock setImage:[UIImage imageNamed:@"signup_btn_checkbox_off"] forState:UIControlStateNormal];
     [buttonCheckBoxPoplock setImage:[UIImage imageNamed:@"signup_btn_checkbox_on"] forState:UIControlStateSelected];
     [buttonCheckBoxPoplock addTarget:self action:@selector(checkPopButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     
+    
+    stripeConnect = [UIButton buttonWithType:UIButtonTypeCustom];
+    stripeConnect.frame = CGRectMake(30, 95, 260, 35);
+    [stripeConnect addTarget:self action:@selector(stripeButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [stripeConnect setTitle:@"Stripe Connect" forState:UIControlStateNormal];
+    
+    stripeConnect.layer.borderWidth = 1;
+    stripeConnect.layer.borderColor = [UIColor whiteColor].CGColor;
+    [stripeConnect setBackgroundColor:[UIColor blueColor]];
+    
+    [stripeConnect.titleLabel setFont:[UIFont fontWithName:Trebuchet_MS size:15]];
+    [stripeConnect setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [stripeConnect setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    stripeConnect.titleLabel.font = [UIFont systemFontOfSize:15];
+    stripeConnect.layer.cornerRadius = 1;
+
+    
+    
+    
+    
+    
+    
+    
     UIButton *buttonSignUp = [UIButton buttonWithType:UIButtonTypeCustom];
-    buttonSignUp.frame = CGRectMake(30, 130, 260, 50);
+    buttonSignUp.frame = CGRectMake(30, 150, 260, 35);
     [buttonSignUp addTarget:self action:@selector(NextButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [buttonSignUp setTitle:@"REGISTER NOW" forState:UIControlStateNormal];
     
@@ -188,20 +212,21 @@
     [buttonSignUp setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
      buttonSignUp.titleLabel.font = [UIFont systemFontOfSize:15];
      buttonSignUp.layer.cornerRadius = 1;
-    
+   
     [bottomView addSubview:buttonCheckBoxPoplock];
     [bottomView addSubview:buttonCheckBox];
     [bottomView addSubview:buttonSignUp];
+    [bottomView addSubview:stripeConnect];
  
     UILabel *lblPopLock = [[UILabel alloc]init];
     lblPopLock.numberOfLines = 2;
-    lblPopLock.frame = CGRectMake(70, 10, 220, 40);
+    lblPopLock.frame = CGRectMake(70, 5, 220, 40);
     [Helper setToLabel:lblPopLock Text:@"Do you want work on PopLock" WithFont:Robot_CondensedLight FSize:14 Color:[UIColor blackColor]];
     [bottomView addSubview:lblPopLock];
 
     UIButton *buttonTermsAndCondition = [UIButton buttonWithType:UIButtonTypeCustom];
      buttonTermsAndCondition.titleLabel.numberOfLines = 2;
-    buttonTermsAndCondition.frame = CGRectMake(70, 65, 220, 40);
+    buttonTermsAndCondition.frame = CGRectMake(70, 50, 220, 40);
     [Helper setButton:buttonTermsAndCondition Text:@"By creating account you agree to the terms and conditions" WithFont:Robot_CondensedLight FSize:14 TitleColor:[UIColor blackColor] ShadowColor:nil];
     [buttonTermsAndCondition addTarget:self action:@selector(TermsNconButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     buttonTermsAndCondition.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -240,6 +265,14 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateStripeButton)
+                                                 name:@"StripeConnected"
+                                               object:nil];
+    
+
+    
     _isKeyboardIsShown = NO;
     
 }
@@ -254,6 +287,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UIKeyboardWillHideNotification
                                                   object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:@"StripeConnected"];
 }
 
 -(void) createNavLeftButton
@@ -1270,8 +1304,16 @@
 - (void)NextButtonClicked
 {
    // [self signUp];
+     NSDictionary *stripeData = [[NSUserDefaults standardUserDefaults] objectForKey:@"StripeData"];
+    if(stripeData.count > 0){
+    
 
     [self sendServiceForGenerateOtp];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message: @"Please Connect Stripe" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
     
 
 }
@@ -1312,6 +1354,9 @@
 
 - (void)cancelButtonClicked
 {
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"StripeData"];
+    
+    
     [self.navigationController popViewControllerAnimated:YES];
     
     
@@ -1782,6 +1827,13 @@
     return 70;
 }
 
-
+-(void)stripeButtonClicked{
+     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_976GG71vP52gkpAqwg4ZjswqOV5sfOWn&scope=read_write"]];
+}
+-(void)updateStripeButton{
+    NSDictionary *stripeData = [[NSUserDefaults standardUserDefaults] objectForKey:@"StripeData"];
+    
+    [ stripeConnect setTitle:(stripeData.count > 0)?@"Stripe Connected":@"Stripe Connect" forState:UIControlStateNormal];
+}
 
 @end
