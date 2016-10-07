@@ -14,6 +14,7 @@
 #import"Reachability.h"
 //#import<CoreData/CoreData.h>
 #import<GoogleMaps/GoogleMaps.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface PriveMdAppDelegate : UIResponder <UIApplicationDelegate>
 {
@@ -33,6 +34,7 @@
 @property(nonatomic,assign) BOOL isNewBooking;
 
 @property(nonatomic)NSInteger sectionIndex;
+@property(nonatomic)SystemSoundID	pewPewSoundIncoming;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

@@ -387,13 +387,31 @@ void uncaughtExceptionHandler(NSException *exception) {
 
 -(void)playNotificationSound{
     
+    
+
+    
+    
+    
     //play sound
     SystemSoundID	pewPewSound;
     NSString *pewPewPath = [[NSBundle mainBundle]
-                            pathForResource:@"sms-received" ofType:@"wav"];
+                            pathForResource:@"sigma-1-beep" ofType:@"mp3"];
     NSURL *pewPewURL = [NSURL fileURLWithPath:pewPewPath];
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)pewPewURL, & pewPewSound);
     AudioServicesPlaySystemSound(pewPewSound);
+}
+-(void)playNotificationSoundNewBooking{
+    
+    //play sound
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"in playNotificationSoundNewBooking" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//    [alert show];
+    
+
+    NSString *pewPewPath = [[NSBundle mainBundle]
+                            pathForResource:@"sigma-incoming-request" ofType:@"mp3"];
+    NSURL *pewPewURL = [NSURL fileURLWithPath:pewPewPath];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)pewPewURL, & _pewPewSoundIncoming);
+    AudioServicesPlaySystemSound(_pewPewSoundIncoming);
 }
 
 /**
@@ -421,7 +439,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 }
 -(void)handleNotificationForUserInfo:(NSDictionary*)userInfo{
     
-    [self playNotificationSound];
+    
     
    
     
@@ -438,8 +456,7 @@ void uncaughtExceptionHandler(NSException *exception) {
             //booking expired
             XDKAirMenuController *menu = [XDKAirMenuController sharedMenu];
         
-      
-            
+        
             if (![menu.currentViewController isKindOfClass:[UINavigationController class]]) {
                 
                 NSIndexPath *indexpath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -469,6 +486,7 @@ void uncaughtExceptionHandler(NSException *exception) {
         
     }
     else if(type == 10){
+        [self playNotificationSound];
         
         UpdateBookingStatus *updateBookingStatus = [UpdateBookingStatus sharedInstance];
         [updateBookingStatus stopUpdatingStatus];
@@ -493,6 +511,7 @@ void uncaughtExceptionHandler(NSException *exception) {
         
     }
     else{
+        [self playNotificationSound];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:userInfo[@"aps"][@"alert"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
@@ -627,7 +646,7 @@ void uncaughtExceptionHandler(NSException *exception) {
         else {
             
             self.isNewBooking = YES;
-            [self playNotificationSound];
+            [self playNotificationSoundNewBooking];
            // [[NSNotificationCenter defaultCenter] postNotificationName:@"NewBooking" object:nil userInfo:mdict];
             XDKAirMenuController *menu = [XDKAirMenuController sharedMenu];
             

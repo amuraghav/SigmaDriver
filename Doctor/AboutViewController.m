@@ -48,25 +48,25 @@
     
     
     
-    [Helper setToLabel:topLabel Text:@"Your Car, We'll Drive" WithFont:Robot_Regular FSize:13 Color:[UIColor blackColor]];
-    [Helper setToLabel:bottomLabel Text:@"www.sigma.com" WithFont:Robot_Regular FSize:11 Color:[UIColor blueColor]];
+    [Helper setToLabel:topLabel Text:@"Sigma" WithFont:Robot_Regular FSize:13 Color:[UIColor blackColor]];
+    [Helper setToLabel:bottomLabel Text:@"www.ridesigma.com" WithFont:Robot_Regular FSize:11 Color:[UIColor blueColor]];
     
     
-    [Helper setButton:rateButton Text:@"RATE US IN THE APP STORE" WithFont:Robot_Regular FSize:15 TitleColor:[UIColor blackColor] ShadowColor:nil];
+    [Helper setButton:rateButton Text:@"Rate us on the App Store" WithFont:Robot_Regular FSize:15 TitleColor:[UIColor blackColor] ShadowColor:nil];
     rateButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     rateButton.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     [rateButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [rateButton setBackgroundColor:BUTTON_Color];
     // [rateButton setBackgroundImage:[UIImage imageNamed:@"about_cell_selector"] forState:UIControlStateHighlighted];
     
-    [Helper setButton:likeButton Text:@"LIKE US ON FACEBOOK" WithFont:Robot_Regular FSize:15 TitleColor:[UIColor blackColor] ShadowColor:nil];
+    [Helper setButton:likeButton Text:@"Like us on Facebook" WithFont:Robot_Regular FSize:15 TitleColor:[UIColor blackColor] ShadowColor:nil];
     likeButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     likeButton.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     [likeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [likeButton setBackgroundColor:BUTTON_Color];
     //[likeButton setBackgroundImage:[UIImage imageNamed:@"about_cell_selector"] forState:UIControlStateHighlighted];
     
-    [Helper setButton:legalButton Text:@"LEGAL" WithFont:Robot_Regular FSize:15 TitleColor:[UIColor blackColor] ShadowColor:nil];    legalButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [Helper setButton:legalButton Text:@"Legal" WithFont:Robot_Regular FSize:15 TitleColor:[UIColor blackColor] ShadowColor:nil];    legalButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     legalButton.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     [legalButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [legalButton setBackgroundColor:BUTTON_Color];

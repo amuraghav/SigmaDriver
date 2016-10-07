@@ -32,10 +32,11 @@
 #import "UploadFiles.h"
 #import "BookingHistoryViewController.h"
 #import "CheckBookingStatus.h"
-
+#import <AudioToolbox/AudioToolbox.h>
 #import "BookingDetail.h"
 #import "UpdateBookingStatus.h"
 #import "MathController.h"
+#import "PriveMdAppDelegate.h"
 
 
 #define mapZoomLevel 13
@@ -1289,6 +1290,8 @@ static float longitdeChange = 0.00234;
     switch (button.tag) {
         case 10://accept
         {
+            [self stopSound];
+            
                bgview.hidden=NO;
             ProgressIndicator *pi = [ProgressIndicator sharedInstance];
             [pi showPIOnView:self.view withMessage:@"Please wait.."];
@@ -1302,6 +1305,7 @@ static float longitdeChange = 0.00234;
         }
         case 11://reject
         {
+            [self stopSound];
             bgview.hidden=NO;
             
             UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Message" message:@"Are you sure you want to reject this booking?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
@@ -1320,7 +1324,11 @@ static float longitdeChange = 0.00234;
     }
     
 }
+-(void)stopSound{
+    PriveMdAppDelegate * deligate =(PriveMdAppDelegate *) [ UIApplication sharedApplication ].delegate;
+    AudioServicesDisposeSystemSoundID(deligate.pewPewSoundIncoming);
 
+}
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     
