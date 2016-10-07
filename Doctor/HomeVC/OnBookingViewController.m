@@ -531,7 +531,7 @@
     UILabel *labelAddressValue = (UILabel*)[_topView viewWithTag:211];
       self.title = @"I HAVE ARRIVED";
     labelAddress.text = @"DROP :";
-    labelAddressValue.text = passDetail[@"addr1"];//[NSString stringWithContentsOfFile:passDetail[@"dropAddr1"] encoding:NSUTF32StringEncoding error:nil];
+    labelAddressValue.text = passDetail[@"dropAddr1"];//[NSString stringWithContentsOfFile:passDetail[@"dropAddr1"] encoding:NSUTF32StringEncoding error:nil];
 }
 
 -(void)changePickUpAddressOnUI{
