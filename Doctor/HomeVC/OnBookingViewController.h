@@ -26,6 +26,9 @@
     IBOutlet UIView *viewStatus;
     
     NSString *IsPopLock;
+    
+    CLLocationCoordinate2D location1;
+    CLLocationCoordinate2D location0;
 }
 -(IBAction)buttonAction:(id)sender;
 @property(strong,nonatomic)NSMutableDictionary *passDetail;

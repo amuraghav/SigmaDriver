@@ -735,18 +735,55 @@ void uncaughtExceptionHandler(NSException *exception) {
         
         if(json){
             [[NSNotificationCenter defaultCenter] postNotificationName:@"StripeConnected" object:nil];
+            NSString *sessionToken = [[NSUserDefaults standardUserDefaults]objectForKey:KDAcheckUserSessionToken];
+            if(sessionToken.length > 0){
+                [self performSelectorInBackground:@selector(udateStripeConnect:) withObject:json];
+            }
+            
         }
-        NSString *errorString = [json objectForKey:@"error"];
-        NSString *accessToken = [json objectForKey:@"access_token"];
-        NSString *stripePubKey = [json objectForKey:@"stripe_publishable_key"];
-        NSString *stripeUserId = [json objectForKey:@"stripe_user_id"];
+        
+       
+        
+        
+//        NSString *errorString = [json objectForKey:@"error"];
+//        NSString *accessToken = [json objectForKey:@"access_token"];
+//        NSString *stripePubKey = [json objectForKey:@"stripe_publishable_key"];
+//        NSString *stripeUserId = [json objectForKey:@"stripe_user_id"];
         
         
     }
     return YES;
 }
 
+-(void)udateStripeConnect:(NSDictionary*)dict{
+   
+    ResKitWebService * restKit = [ResKitWebService sharedInstance];
+    NSDictionary * stripeData = [[NSUserDefaults standardUserDefaults] objectForKey:@"StripeData"];
+    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:stripeData options:0 error:nil];
+    NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    NSString *sessionToken = [[NSUserDefaults standardUserDefaults]objectForKey:KDAcheckUserSessionToken];
+    NSString *deviceID = [[NSUserDefaults standardUserDefaults]objectForKey:kPMDDeviceIdKey];
 
+    NSDictionary *params = @{@"ent_sess_token":sessionToken,
+                             @"ent_dev_id":deviceID,
+                             @"ent_stripe_account":[dict objectForKey:@"stripe_user_id"],
+                             @"ent_stripe_json":myString,
+                            
+                            };
+    NSLog(@"%@",params);
+    NetworkHandler *networHandler = [NetworkHandler sharedInstance];
+    
+//    [networHandler cancelRequest];
+    
+    [networHandler composeRequestWithMethod:@"editstripeconnect"
+                                    paramas:params
+                               onComplition:^(BOOL success, NSDictionary *response){
+                                   
+                                                                 }];
+
+
+}
 
 
 @end

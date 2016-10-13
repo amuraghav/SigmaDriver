@@ -138,6 +138,8 @@
         [progressIndicator showPIOnView:self.view withMessage:@"Signing in"];
         ResKitWebService * restKit = [ResKitWebService sharedInstance];
         NSDictionary * stripeData = [[NSUserDefaults standardUserDefaults] objectForKey:@"StripeData"];
+        NSData * jsonData = [NSJSONSerialization dataWithJSONObject:stripeData options:0 error:nil];
+        NSString * myString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         NSDictionary *queryParams = [NSDictionary dictionaryWithObjectsAndKeys:
                                      signupFirstName,kSMPSignUpFirstName,
                                      lastName,kSMPSignUpLastName,
@@ -150,7 +152,7 @@
                                      [NSNumber numberWithInt:cartype],kSMPSignupCompneyId,
                                      pushToken,kSMPgetPushToken,
                                      @"1",kSMPSignUpDeviceType,
-                                     [Helper getCurrentDateTime],kSMPSignUpDateTime,isPopLockstr,kSMPoplock,optCode,kSMOtp,[stripeData objectForKey:@"stripe_user_id"],kSMStripeAccount,stripeData,kSMentStripeJson, nil];
+                                     [Helper getCurrentDateTime],kSMPSignUpDateTime,isPopLockstr,kSMPoplock,optCode,kSMOtp,[stripeData objectForKey:@"stripe_user_id"],kSMStripeAccount,myString,kSMentStripeJson, nil];
         
         TELogInfo(@"param%@",queryParams);
         [restKit composeRequestForSignUpWithMethod:MethodPatientSignUp

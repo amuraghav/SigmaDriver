@@ -19,11 +19,32 @@
 #import "MathController.h"
 
 
+//Add new class
+#import "MapRequestModel.h"
+#import "OpenInGoogleMapsController.h"
+#import "PickLocationViewController.h"
+
+
+static NSString * const kOpenInMapsSampleURLScheme = @"OpenInGoogleMapsSample://";
+
+
+// Constants for URL schemes and arguments defined by Google Maps and Chrome.
+static NSString * const kGoogleMapsScheme = @"comgooglemaps://";
+static NSString * const kGoogleMapsCallbackScheme = @"comgooglemaps-x-callback://";
+static NSString* const kGoogleChromeOpenLink =
+@"googlechrome-x-callback://x-callback-url/open/?url=";
+
+static NSString * const kGoogleMapsStringTraffic = @"traffic";
+static NSString * const kGoogleMapsStringTransit = @"transit";
+static NSString * const kGoogleMapsStringSatellite = @"satellite";
+
+
 @interface OnBookingViewController ()<CustomNavigationBarDelegate,GMSMapViewDelegate,CLLocationManagerDelegate,UIActionSheetDelegate>
 {
     GMSMapView *mapView_;
     GMSGeocoder *geocoder_;
     NSMutableArray *waypoints_;
+     UIApplication *_sharedApplication;
    
 }
 @property(nonatomic,strong) NSMutableArray *waypointStrings_;
@@ -51,12 +72,19 @@
 @property(strong,nonatomic) NSString *approxPrice;
 @property(strong,nonatomic) NSTimer *statusUpdateTimer;
 @property(nonatomic,assign) PubNubStreamAction driverState;
+
+
+//Add new code here
+
+@property(nonatomic, strong) MapRequestModel *model;
+
 @end
 
 @implementation OnBookingViewController
 @synthesize customMapView;
 @synthesize passDetail;
 @synthesize waypointStrings_;
+@synthesize model;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -198,6 +226,20 @@
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bookingCancelledByPassenger) name:@"bookingCancelled" object:nil];
+    
+    
+    //TO DO:: Add new code
+    
+    self.model = [[MapRequestModel alloc] init];
+    
+    
+    
+    // And let's set our callback URL right away!
+    [OpenInGoogleMapsController sharedInstance].callbackURL =
+    [NSURL URLWithString:kOpenInMapsSampleURLScheme];
+    
+    [OpenInGoogleMapsController sharedInstance].fallbackStrategy =
+    kGoogleMapsFallbackChromeThenAppleMaps;
     
     
 }
@@ -412,6 +454,15 @@
     [_topView addSubview:labelPassengerNameValue];
     
     
+    UIButton *buttonNavigateMap = [UIButton buttonWithType:UIButtonTypeCustom];
+    buttonNavigateMap.frame = CGRectMake(CGRectGetMaxX(profileImageView.frame)+160, CGRectGetMaxY(labelPassengerNameValue.frame)-10, 35, 35);
+    buttonNavigateMap.tag = 1021;
+    buttonNavigateMap.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [buttonNavigateMap setBackgroundImage:[UIImage imageNamed:@"Get_my_location"] forState:UIControlStateNormal];
+    [buttonNavigateMap addTarget:self action:@selector(directionClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [_topView addSubview:buttonNavigateMap];
+    
+    
     //Mobile
     UILabel *labelMobile = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(profileImageView.frame)+5, CGRectGetMaxY(labelPassengerName.frame)+ 5,30, 20)];
     [Helper setToLabel:labelMobile Text:@"Mob :" WithFont:Robot_Bold FSize:10 Color:UIColorFromRGB(0x333333)];
@@ -576,6 +627,53 @@
     }
 }
 
+
+
+#pragma Direction Navigation
+-(void)directionClicked:(id)sender{
+    TELogInfo(@"DETAILS contactButtonClicked CLICKED");
+    
+    // UIButton *button = (UIButton *)sender;
+    
+    if (![[OpenInGoogleMapsController sharedInstance] isGoogleMapsInstalled]) {
+        NSLog(@"Google Maps not installed, but using our fallback strategy");
+        
+        [self openDirectionsInGoogleMaps];
+    }
+    else{
+        
+        [self openDirectionsInGoogleMaps];
+    }
+    
+    
+}
+
+- (void)openDirectionsInGoogleMaps {
+    
+    
+    GoogleDirectionsDefinition *directionsDefinition = [[GoogleDirectionsDefinition alloc] init];
+    if (self.model.startCurrentLocation) {
+        directionsDefinition.startingPoint = nil;
+    } else {
+        GoogleDirectionsWaypoint *startingPoint = [[GoogleDirectionsWaypoint alloc] init];
+        //  startingPoint.queryString = self.model.startQueryString;
+        startingPoint.location = location0;
+        directionsDefinition.startingPoint = startingPoint;
+    }
+    if (self.model.destinationCurrentLocation) {
+        directionsDefinition.destinationPoint = nil;
+    } else {
+        GoogleDirectionsWaypoint *destination = [[GoogleDirectionsWaypoint alloc] init];
+        // destination.queryString = self.model.destinationQueryString;
+        destination.location = location1;
+        directionsDefinition.destinationPoint = destination;
+    }
+    directionsDefinition.travelMode = kGoogleMapsTravelModeDriving;
+    [[OpenInGoogleMapsController sharedInstance] openDirections:directionsDefinition];
+}
+
+
+
 -(void)cancelBookingClicked:(id)sender{
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Why are you canceling?" delegate:self cancelButtonTitle:@"No don't cancel booking" destructiveButtonTitle:nil otherButtonTitles:@"Do not charge client",@"Client no-show",@"Client requested cancel",@"Wrong address shown",@"other" ,nil];
     //[actionSheet showInView:self.view];
@@ -684,6 +782,7 @@
     
     //add marker at current location
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(latitude, longitude);
+    location0=CLLocationCoordinate2DMake(latitude, longitude);
     
     _currentLocationMarker  = [[GMSMarker alloc] init];
     _currentLocationMarker.map = mapView_;
@@ -739,7 +838,7 @@
  *  @param longitude destination point longitude
  */
 -(void)updateDestinationLocationWithLatitude:(float)latitude Longitude:(float)longitude{
-    
+    location1=CLLocationCoordinate2DMake(latitude, longitude);
     
     if (!_isPathPlotted) {
         
@@ -772,11 +871,19 @@
             NSArray *keys = [NSArray arrayWithObjects:@"sensor", @"waypoints", nil];
             NSDictionary *query = [NSDictionary dictionaryWithObjects:parameters
                                                               forKeys:keys];
-            DirectionService *mds=[[DirectionService alloc] init];
-            SEL selector = @selector(addDirections:);
-            [mds setDirectionsQuery:query
-                       withSelector:selector
-                       withDelegate:self];
+            if (latitude == 0 || longitude == 0) {
+                
+                NSLog(@"latitude and longitude not found !!!");
+                
+            }else{
+                
+                DirectionService *mds=[[DirectionService alloc] init];
+                SEL selector = @selector(addDirections:);
+                [mds setDirectionsQuery:query
+                           withSelector:selector
+                           withDelegate:self];
+            
+                    }
         }
         
     }
@@ -1404,5 +1511,53 @@
     [updateBookingStatus updateToPassengerForDriverState];
     [updateBookingStatus startUpdatingStatus];
 }
+
+//Add new code
+
+# pragma mark - PickLocationDelegate
+
+- (void)pickLocationController:(PickLocationViewController *)controller
+             pickedQueryString:(NSString *)query
+                      location:(CLLocationCoordinate2D)location
+                      forGroup:(LocationGroup)group {
+    [self.model setQueryString:query center:location forGroup:group];
+    [self updateTextStrings];
+}
+
+- (void)pickLocationController:(PickLocationViewController *)controller
+                pickedLocation:(CLLocationCoordinate2D)location
+                      forGroup:(LocationGroup)group {
+    [self.model setQueryString:nil center:location forGroup:group];
+    [self updateTextStrings];
+}
+
+- (void)pickLocationController:(PickLocationViewController *)controller
+             pickedQueryString:(NSString *)query
+                      forGroup:(LocationGroup)group {
+    [self.model setQueryString:query forGroup:group];
+    [self updateTextStrings];
+}
+
+
+
+- (void)pickLocationController:(PickLocationViewController *)controller
+ pickedCurrentLocationForGroup:(LocationGroup)group {
+    [self.model useCurrentLocationForGroup:group];
+    [self updateTextStrings];
+}
+
+
+- (void)noLocationPickedByPickLocationController:(PickLocationViewController *)controller {
+    // Leave everything unchanged
+}
+
+
+- (void)updateTextStrings {
+    //    self.startLocationDescription.text = [self.model descriptionForGroup:kLocationGroupStart];
+    //    self.endLocationDescription.text = [self.model descriptionForGroup:kLocationGroupEnd];
+    //    [self.travelMethodButton setTitle:[self.model travelModeDescription]
+    //                             forState:UIControlStateNormal];
+}
+
 
 @end

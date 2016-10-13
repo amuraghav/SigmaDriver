@@ -8,6 +8,9 @@
 
 #import "CheckBookingStatus.h"
 
+
+@interface CheckBookingStatus()<UIAlertViewDelegate>
+@end
 @implementation CheckBookingStatus
 @synthesize callblock;
 static CheckBookingStatus  *bookingStatus;
@@ -85,6 +88,22 @@ static CheckBookingStatus  *bookingStatus;
         {
             //if ([responseDict[@"status"] integerValue]) {
             //    int status = [responseDict[@"data"][@"status"]integerValue];
+            
+            
+            
+            if([[responseDict objectForKey:@"stripe_connect_status"] isEqualToString:@"0"]){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                message:@"Your Account is Not Connect With Strip"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"Stripe Connect"
+                                                      otherButtonTitles:nil];
+                [alert show];
+                
+            }
+
+            
+            
+            
             NSDictionary *response = responseDict[@"data"][0];
             int status = [response[@"status"] intValue];
                 self.callblock(status,response);
@@ -96,5 +115,10 @@ static CheckBookingStatus  *bookingStatus;
         }
     }
 }
-
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    // the user clicked OK
+    if (buttonIndex == 0) {
+       [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_976GG71vP52gkpAqwg4ZjswqOV5sfOWn&scope=read_write"]];
+    }
+}
 @end

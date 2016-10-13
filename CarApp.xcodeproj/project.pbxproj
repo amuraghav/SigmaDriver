@@ -51,6 +51,11 @@
 		3DE138CB1BB9844B005B5FF0 /* Car_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DE138C91BB9844B005B5FF0 /* Car_profile@2x.png */; };
 		3DE909FE1BB6CA1900A22060 /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE909FD1BB6CA1900A22060 /* ProfileVC.m */; };
 		3DF1DC541D3E660A0098C9FE /* Text-Bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DF1DC531D3E660A0098C9FE /* Text-Bg@2x.png */; };
+		842711301DAF6DFC00F9BE23 /* MapRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427112B1DAF6DFC00F9BE23 /* MapRequestModel.m */; };
+		842711311DAF6DFC00F9BE23 /* OpenInGoogleMapsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427112D1DAF6DFC00F9BE23 /* OpenInGoogleMapsController.m */; };
+		842711321DAF6DFC00F9BE23 /* PickLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8427112F1DAF6DFC00F9BE23 /* PickLocationViewController.m */; };
+		842711351DAF787000F9BE23 /* Get_my_location.png in Resources */ = {isa = PBXBuildFile; fileRef = 842711331DAF787000F9BE23 /* Get_my_location.png */; };
+		842711361DAF787000F9BE23 /* get_my_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 842711341DAF787000F9BE23 /* get_my_location@2x.png */; };
 		843774DF1DA7A335001071B2 /* sigma-1-beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 843774DC1DA7A335001071B2 /* sigma-1-beep.mp3 */; };
 		843774E01DA7A335001071B2 /* sigma-incoming-request.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 843774DD1DA7A335001071B2 /* sigma-incoming-request.mp3 */; };
 		843774E11DA7A335001071B2 /* sms-received.wav in Resources */ = {isa = PBXBuildFile; fileRef = 843774DE1DA7A335001071B2 /* sms-received.wav */; };
@@ -372,6 +377,14 @@
 		3DE909FD1BB6CA1900A22060 /* ProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileVC.m; path = ../../ProfileVC.m; sourceTree = "<group>"; };
 		3DF1DC531D3E660A0098C9FE /* Text-Bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Text-Bg@2x.png"; sourceTree = "<group>"; };
 		599E29643DC44D76AC4A86AB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		8427112A1DAF6DFC00F9BE23 /* MapRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapRequestModel.h; sourceTree = "<group>"; };
+		8427112B1DAF6DFC00F9BE23 /* MapRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapRequestModel.m; sourceTree = "<group>"; };
+		8427112C1DAF6DFC00F9BE23 /* OpenInGoogleMapsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenInGoogleMapsController.h; sourceTree = "<group>"; };
+		8427112D1DAF6DFC00F9BE23 /* OpenInGoogleMapsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenInGoogleMapsController.m; sourceTree = "<group>"; };
+		8427112E1DAF6DFC00F9BE23 /* PickLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickLocationViewController.h; sourceTree = "<group>"; };
+		8427112F1DAF6DFC00F9BE23 /* PickLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickLocationViewController.m; sourceTree = "<group>"; };
+		842711331DAF787000F9BE23 /* Get_my_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Get_my_location.png; sourceTree = "<group>"; };
+		842711341DAF787000F9BE23 /* get_my_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "get_my_location@2x.png"; sourceTree = "<group>"; };
 		843774DC1DA7A335001071B2 /* sigma-1-beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sigma-1-beep.mp3"; sourceTree = "<group>"; };
 		843774DD1DA7A335001071B2 /* sigma-incoming-request.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sigma-incoming-request.mp3"; sourceTree = "<group>"; };
 		843774DE1DA7A335001071B2 /* sms-received.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sms-received.wav"; sourceTree = "<group>"; };
@@ -829,6 +842,19 @@
 				3D88A4881CBD070B007C6108 /* DCRoundSwitchToggleLayer.m */,
 			);
 			path = DCRoundSwitch;
+			sourceTree = "<group>";
+		};
+		842711291DAF6DFC00F9BE23 /* Map navigation */ = {
+			isa = PBXGroup;
+			children = (
+				8427112A1DAF6DFC00F9BE23 /* MapRequestModel.h */,
+				8427112B1DAF6DFC00F9BE23 /* MapRequestModel.m */,
+				8427112C1DAF6DFC00F9BE23 /* OpenInGoogleMapsController.h */,
+				8427112D1DAF6DFC00F9BE23 /* OpenInGoogleMapsController.m */,
+				8427112E1DAF6DFC00F9BE23 /* PickLocationViewController.h */,
+				8427112F1DAF6DFC00F9BE23 /* PickLocationViewController.m */,
+			);
+			path = "Map navigation";
 			sourceTree = "<group>";
 		};
 		843774DB1DA7A335001071B2 /* Sounds */ = {
@@ -1325,6 +1351,7 @@
 		C29B14E718FFBEF1006979C7 /* Roadyo */ = {
 			isa = PBXGroup;
 			children = (
+				842711291DAF6DFC00F9BE23 /* Map navigation */,
 				3D88A47C1CBCFD5B007C6108 /* ResetPwd */,
 				9493C3AF1959E6C400305078 /* LocationUpdateWrapper */,
 				C25AF1111912335E00255551 /* BookingViewController */,
@@ -1391,6 +1418,8 @@
 		C29B151618FFBF1D006979C7 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				842711331DAF787000F9BE23 /* Get_my_location.png */,
+				842711341DAF787000F9BE23 /* get_my_location@2x.png */,
 				3DF1DC531D3E660A0098C9FE /* Text-Bg@2x.png */,
 				14203A701AC42A8D00BA2FC1 /* button-car@2x.png */,
 				14203A761AC42BA700BA2FC1 /* confirm-car-small@2x.png */,
@@ -1931,7 +1960,7 @@
 				ORGANIZATIONNAME = ons;
 				TargetAttributes = {
 					C29B14DD18FFBEF1006979C7 = {
-						DevelopmentTeam = MMVGVUJYAG;
+						DevelopmentTeam = 2P9N9P2QS2;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1939,7 +1968,7 @@
 						};
 					};
 					C29B14FE18FFBEF1006979C7 = {
-						DevelopmentTeam = MMVGVUJYAG;
+						DevelopmentTeam = 2P9N9P2QS2;
 						TestTargetID = C29B14DD18FFBEF1006979C7;
 					};
 				};
@@ -1975,6 +2004,7 @@
 				C2A0429F19222DD800637E87 /* home_acceptreject_on@2x.png in Resources */,
 				3DE138BF1BB95EB7005B5FF0 /* statistics@2x.png in Resources */,
 				3DE138C71BB96D64005B5FF0 /* Driver@2x.png in Resources */,
+				842711351DAF787000F9BE23 /* Get_my_location.png in Resources */,
 				C2046322191A47DE00CFF9A4 /* login_bg@2x.png in Resources */,
 				C2382855191A27EC0091CC00 /* roadyo_footer@2x.png in Resources */,
 				C222A146192C7F4A008D67CE /* calender_miles_icon@2x.png in Resources */,
@@ -1998,6 +2028,7 @@
 				1406FD3D1AA81E8700A715C1 /* 80x80.png in Resources */,
 				C2382864191A36CB0091CC00 /* Roboto-Thin.ttf in Resources */,
 				1406FD351AA81E0700A715C1 /* 1242X2208.png in Resources */,
+				842711361DAF787000F9BE23 /* get_my_location@2x.png in Resources */,
 				3DF1DC541D3E660A0098C9FE /* Text-Bg@2x.png in Resources */,
 				C222A143192C7F4A008D67CE /* calender_dropoff_icon@2x.png in Resources */,
 				C26769EC195B079A00143F14 /* menu_info_on@2x.png in Resources */,
@@ -2182,6 +2213,7 @@
 				94B817AC195D447800CC846A /* (null) in Sources */,
 				94B817AA195D447000CC846A /* Appointments.m in Sources */,
 				94B817AB195D447000CC846A /* AppointmentDates.m in Sources */,
+				842711321DAF6DFC00F9BE23 /* PickLocationViewController.m in Sources */,
 				C29F239E19076E390094A024 /* CKCalendarEvent.m in Sources */,
 				C2997A43195D400300DDA33D /* MenuViewController.m in Sources */,
 				C24FC8D318FFC83D0006F859 /* SBJsonParser.m in Sources */,
@@ -2200,6 +2232,7 @@
 				C24FC89618FFC6540006F859 /* SignInViewController.m in Sources */,
 				C29D7EE6190105CA003D25FC /* WebServiceConstants.m in Sources */,
 				C24FC8B518FFC8220006F859 /* Service.m in Sources */,
+				842711301DAF6DFC00F9BE23 /* MapRequestModel.m in Sources */,
 				C29F23AC19076E4D0094A024 /* CKCalendarViewController.m in Sources */,
 				C24FC8E018FFD87E0006F859 /* AppConstants.m in Sources */,
 				C29D7EDE1900DDFF003D25FC /* DAPagesContainer.m in Sources */,
@@ -2276,6 +2309,7 @@
 				3DE909FE1BB6CA1900A22060 /* ProfileVC.m in Sources */,
 				C29F23B919076EA40094A024 /* NSString+Color.m in Sources */,
 				C24FC89718FFC6540006F859 /* SignUpViewController.m in Sources */,
+				842711311DAF6DFC00F9BE23 /* OpenInGoogleMapsController.m in Sources */,
 				C2FFF404191762C5003D5301 /* ResKitWebService.m in Sources */,
 				C29F23FE19077BA10094A024 /* CKCalendarView.m in Sources */,
 				9493C3BE1959FF6E00305078 /* UpdateLocation.m in Sources */,
@@ -2356,8 +2390,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2375,7 +2409,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "88d16ec6-c834-4bbc-a966-2b20e5a295f5";
+				PROVISIONING_PROFILE = "760f4e04-6132-45b2-ba26-be827dbc703f";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2397,8 +2431,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2409,7 +2443,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "88d16ec6-c834-4bbc-a966-2b20e5a295f5";
+				PROVISIONING_PROFILE = "760f4e04-6132-45b2-ba26-be827dbc703f";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2421,9 +2455,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				DEVELOPMENT_TEAM = MMVGVUJYAG;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				DEVELOPMENT_TEAM = 2P9N9P2QS2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2438,9 +2472,9 @@
 				GCC_PREFIX_HEADER = "Doctor/CarApp-Prefix.pch";
 				INFOPLIST_FILE = "Doctor/CarApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appypie.appypie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CustomAppsTeam.CustomAppsTeam;
 				PRODUCT_NAME = CarApp;
-				PROVISIONING_PROFILE = "88d16ec6-c834-4bbc-a966-2b20e5a295f5";
+				PROVISIONING_PROFILE = "760f4e04-6132-45b2-ba26-be827dbc703f";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -2453,9 +2487,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				DEVELOPMENT_TEAM = MMVGVUJYAG;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				DEVELOPMENT_TEAM = 2P9N9P2QS2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2470,10 +2504,10 @@
 				GCC_PREFIX_HEADER = "Doctor/CarApp-Prefix.pch";
 				INFOPLIST_FILE = "Doctor/CarApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appypie.appypie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CustomAppsTeam.CustomAppsTeam;
 				PRODUCT_NAME = CarApp;
-				PROVISIONING_PROFILE = "88d16ec6-c834-4bbc-a966-2b20e5a295f5";
-				PROVISIONING_PROFILE_SPECIFIER = "Appypie test link";
+				PROVISIONING_PROFILE = "760f4e04-6132-45b2-ba26-be827dbc703f";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2484,9 +2518,9 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				DEVELOPMENT_TEAM = MMVGVUJYAG;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				DEVELOPMENT_TEAM = 2P9N9P2QS2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2500,7 +2534,7 @@
 				);
 				INFOPLIST_FILE = "DoctorTests/CarAppTests-Info.plist";
 				PRODUCT_NAME = CarAppTests;
-				PROVISIONING_PROFILE = "88d16ec6-c834-4bbc-a966-2b20e5a295f5";
+				PROVISIONING_PROFILE = "760f4e04-6132-45b2-ba26-be827dbc703f";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarApp.app/CarApp";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -2511,9 +2545,9 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				DEVELOPMENT_TEAM = MMVGVUJYAG;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				DEVELOPMENT_TEAM = 2P9N9P2QS2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2523,7 +2557,7 @@
 				GCC_PREFIX_HEADER = "Doctor/CarApp-Prefix.pch";
 				INFOPLIST_FILE = "DoctorTests/CarAppTests-Info.plist";
 				PRODUCT_NAME = CarAppTests;
-				PROVISIONING_PROFILE = "88d16ec6-c834-4bbc-a966-2b20e5a295f5";
+				PROVISIONING_PROFILE = "760f4e04-6132-45b2-ba26-be827dbc703f";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarApp.app/CarApp";
 				WRAPPER_EXTENSION = xctest;
 			};

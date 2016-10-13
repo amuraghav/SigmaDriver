@@ -179,3 +179,18 @@ extern NSString *const kNotificationCardDeletedNameKey;
 
 #pragma mark - Network Error
 extern NSString *const kNetworkErrormessage;
+
+typedef NS_ENUM(NSInteger, LocationGroup) {
+    kLocationGroupStart,
+    kLocationGroupEnd
+};
+
+// An enum to specify the travel mode for which the user wants directions.
+typedef NS_ENUM(NSInteger, TravelMode) {
+    kTravelModeNotSpecified,
+    kTravelModeDriving,
+    kTravelModePublicTransit,
+    kTravelModeBicycling,
+    kTravelModeWalking
+};
+

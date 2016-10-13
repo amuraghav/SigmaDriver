@@ -4,6 +4,12 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>$(PRODUCT_NAME) uses photos</string>
+    <key>NSCameraUsageDescription</key>
+    <string>$(PRODUCT_NAME) Camera</string>
+    <key>NSContactsUsageDescription</key>
+    <string>$(PRODUCT_NAME) uses Contact</string>
 	<key>CFBundleDisplayName</key>
 	<string>Sigma Driver</string>
 	<key>CFBundleExecutable</key>
@@ -32,9 +38,25 @@
 				<string>StripeConnectTest</string>
 			</array>
 		</dict>
-	</array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLName</key>
+            <string>OpenInGoogleMapsSample</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>OpenInGoogleMapsSample</string>
+            </array>
+        </dict>
+    </array>
 	<key>CFBundleVersion</key>
 	<string>1.2.0</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>comgooglemaps</string>
+        <string>comgooglemaps-x-callback</string>
+        <string>OpenInGoogleMapsSample</string>
+    </array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
