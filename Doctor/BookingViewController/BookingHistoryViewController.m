@@ -210,6 +210,7 @@
                                       //[self updateStstusResponse:(NSArray*)response];
                                       
                                       Errorhandler * handler = [(NSArray*)response objectAtIndex:0];
+                                      [Helper showAlertWithTitle:@"Message" Message:[handler errMsg]];
                                       
                                       [pi hideProgressIndicator];
                                       

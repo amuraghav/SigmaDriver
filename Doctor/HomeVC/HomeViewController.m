@@ -161,8 +161,18 @@ static float longitdeChange = 0.00234;
     [Helper setButton:btnAccept Text:@"ACCEPT" WithFont:Robot_CondensedLight FSize:15 TitleColor:UIColorFromRGB(0x24ff00) ShadowColor:nil];
     [Helper setButton:btnReject Text:@"REJECT" WithFont:Robot_CondensedLight FSize:15 TitleColor:UIColorFromRGB(0xff0000) ShadowColor:nil];
     [self addCustomNavigationBar];
+    if( [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone )
+    {
+        if( [[UIScreen mainScreen] bounds].size.height >= 568 || [[UIScreen mainScreen] bounds].size.width >= 568 )
+        {
+            bgview =[[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-510, self.view.frame.size.width, 60)];        }
+        else
+        {
+           bgview =[[UIView alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 60)];
+        }
+    }
     
-    bgview =[[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-510, self.view.frame.size.width, 60)];
+    
     bgview.backgroundColor=[UIColor colorWithRed:104.0/255.0 green:104.0/255.0 blue:139.0/255.0 alpha:1] ;
     self.switchOnOff =[[DCRoundSwitch alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-35,17,70,29)];
     self.switchOnOff.onTintColor = [UIColor colorWithRed:131.0/255.0 green:195.0/255.0 blue:70.0/255.0 alpha:1];
@@ -1610,6 +1620,7 @@ static float longitdeChange = 0.00234;
 
         UpdateBookingStatus *updateBookingStatus = [UpdateBookingStatus sharedInstance];
         updateBookingStatus.driverState = kPubNubStartDoctorLocationStreamAction;
+        updateBookingStatus.iterations = 5;
         [updateBookingStatus updateToPassengerForDriverState];
         [updateBookingStatus startUpdatingStatus];
         

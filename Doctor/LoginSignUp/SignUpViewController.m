@@ -160,24 +160,30 @@
     
     //table bottom view
     
-    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 200)];
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 300)];
     UIButton *buttonCheckBox = [UIButton buttonWithType:UIButtonTypeCustom];
-    buttonCheckBox.frame = CGRectMake(25, 50, 34, 34);
+    buttonCheckBox.frame = CGRectMake(25, 105, 34, 34);
     [buttonCheckBox setImage:[UIImage imageNamed:@"signup_btn_checkbox_off"] forState:UIControlStateNormal];
     [buttonCheckBox setImage:[UIImage imageNamed:@"signup_btn_checkbox_on"] forState:UIControlStateSelected];
     [buttonCheckBox addTarget:self action:@selector(checkButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     //Add new check box for pop lock
     UIButton *buttonCheckBoxPoplock = [UIButton buttonWithType:UIButtonTypeCustom];
-    buttonCheckBoxPoplock.frame = CGRectMake(25, 5, 34, 34);
+    buttonCheckBoxPoplock.frame = CGRectMake(25, 55, 34, 34);
     [buttonCheckBoxPoplock setImage:[UIImage imageNamed:@"signup_btn_checkbox_off"] forState:UIControlStateNormal];
     [buttonCheckBoxPoplock setImage:[UIImage imageNamed:@"signup_btn_checkbox_on"] forState:UIControlStateSelected];
     [buttonCheckBoxPoplock addTarget:self action:@selector(checkPopButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
+    UIButton *buttonCheckBoxDriver = [UIButton buttonWithType:UIButtonTypeCustom];
+    buttonCheckBoxDriver.frame = CGRectMake(25, 5, 34, 34);
+    [buttonCheckBoxDriver setImage:[UIImage imageNamed:@"signup_btn_checkbox_off"] forState:UIControlStateNormal];
+    [buttonCheckBoxDriver setImage:[UIImage imageNamed:@"signup_btn_checkbox_on"] forState:UIControlStateSelected];
+    [buttonCheckBoxDriver addTarget:self action:@selector(checkDriverButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     
     stripeConnect = [UIButton buttonWithType:UIButtonTypeCustom];
-    stripeConnect.frame = CGRectMake(30, 95, 260, 35);
+    stripeConnect.frame = CGRectMake(30, 195, 260, 35);
     [stripeConnect addTarget:self action:@selector(stripeButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [stripeConnect setTitle:@"Stripe Connect" forState:UIControlStateNormal];
     
@@ -199,7 +205,7 @@
     
     
     UIButton *buttonSignUp = [UIButton buttonWithType:UIButtonTypeCustom];
-    buttonSignUp.frame = CGRectMake(30, 150, 260, 35);
+    buttonSignUp.frame = CGRectMake(30, 250, 260, 35);
     [buttonSignUp addTarget:self action:@selector(NextButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [buttonSignUp setTitle:@"REGISTER NOW" forState:UIControlStateNormal];
     
@@ -216,17 +222,25 @@
     [bottomView addSubview:buttonCheckBoxPoplock];
     [bottomView addSubview:buttonCheckBox];
     [bottomView addSubview:buttonSignUp];
+//    [bottomView addSubview:buttonCheckBoxDriver];
     [bottomView addSubview:stripeConnect];
  
     UILabel *lblPopLock = [[UILabel alloc]init];
     lblPopLock.numberOfLines = 2;
-    lblPopLock.frame = CGRectMake(70, 5, 220, 40);
+    lblPopLock.frame = CGRectMake(70, 55, 220, 40);
     [Helper setToLabel:lblPopLock Text:@"Do you want work on PopLock" WithFont:Robot_CondensedLight FSize:14 Color:[UIColor blackColor]];
     [bottomView addSubview:lblPopLock];
+    
+     UILabel *lblDriver = [[UILabel alloc]init];
+    lblDriver.numberOfLines = 2;
+    lblDriver.frame = CGRectMake(70, 5, 220, 40);
+    [Helper setToLabel:lblDriver Text:@"Do you want work as Driver" WithFont:Robot_CondensedLight FSize:14 Color:[UIColor blackColor]];
+//    [bottomView addSubview:lblDriver];
+
 
     UIButton *buttonTermsAndCondition = [UIButton buttonWithType:UIButtonTypeCustom];
      buttonTermsAndCondition.titleLabel.numberOfLines = 2;
-    buttonTermsAndCondition.frame = CGRectMake(70, 50, 220, 40);
+    buttonTermsAndCondition.frame = CGRectMake(70, 105, 220, 40);
     [Helper setButton:buttonTermsAndCondition Text:@"By creating account you agree to the terms and conditions" WithFont:Robot_CondensedLight FSize:14 TitleColor:[UIColor blackColor] ShadowColor:nil];
     [buttonTermsAndCondition addTarget:self action:@selector(TermsNconButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     buttonTermsAndCondition.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -1408,6 +1422,29 @@
         
     }
 }
+
+
+- (IBAction)checkDriverButtonClicked:(id)sender
+{
+    UIButton *mBut = (UIButton *)sender;
+    
+    if(mBut.isSelected)
+    {
+//        _signUpDetails.Poplock = @"0";
+        [mBut setSelected:NO];
+        
+        
+    }
+    else
+    {
+//        _signUpDetails.Poplock = @"1";
+        [mBut setSelected:YES];
+        
+        
+    }
+}
+
+
 
 
 - (IBAction)profileButtonClicked:(id)sender

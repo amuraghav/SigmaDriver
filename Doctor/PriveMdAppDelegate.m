@@ -237,7 +237,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     
     
     [self handleNotificationForUserInfo:info];
-     //[[PushNotificationManager pushManager] handlePushReceived:userInfo];
+//     [[PushNotificationManager pushManager] handlePushReceived:userInfo];
     
     
     
@@ -402,9 +402,6 @@ void uncaughtExceptionHandler(NSException *exception) {
 }
 -(void)playNotificationSoundNewBooking{
     
-    //play sound
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"in playNotificationSoundNewBooking" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-//    [alert show];
     
 
     NSString *pewPewPath = [[NSBundle mainBundle]
@@ -438,10 +435,6 @@ void uncaughtExceptionHandler(NSException *exception) {
     }
 }
 -(void)handleNotificationForUserInfo:(NSDictionary*)userInfo{
-    
-    
-    
-   
     
     //handle notification
     //[[NSUserDefaults standardUserDefaults] setObject:userInfo forKey:@"PUSH"];
