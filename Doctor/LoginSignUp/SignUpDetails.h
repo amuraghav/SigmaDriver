@@ -22,6 +22,7 @@
 @property(nonatomic,strong)NSString *taxNumber;
 @property(nonatomic,strong)UIImage *profileImage;
 @property(nonatomic,strong)NSString *Poplock;
+@property (nonatomic,strong)NSString *driverFeature;
 
 + (id)sharedInstance;
 -(void)clear;

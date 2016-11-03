@@ -222,7 +222,7 @@
     [bottomView addSubview:buttonCheckBoxPoplock];
     [bottomView addSubview:buttonCheckBox];
     [bottomView addSubview:buttonSignUp];
-//    [bottomView addSubview:buttonCheckBoxDriver];
+    [bottomView addSubview:buttonCheckBoxDriver];
     [bottomView addSubview:stripeConnect];
  
     UILabel *lblPopLock = [[UILabel alloc]init];
@@ -235,7 +235,7 @@
     lblDriver.numberOfLines = 2;
     lblDriver.frame = CGRectMake(70, 5, 220, 40);
     [Helper setToLabel:lblDriver Text:@"Do you want work as Driver" WithFont:Robot_CondensedLight FSize:14 Color:[UIColor blackColor]];
-//    [bottomView addSubview:lblDriver];
+    [bottomView addSubview:lblDriver];
 
 
     UIButton *buttonTermsAndCondition = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -1430,14 +1430,14 @@
     
     if(mBut.isSelected)
     {
-//        _signUpDetails.Poplock = @"0";
+        _signUpDetails.driverFeature = @"0";
         [mBut setSelected:NO];
         
         
     }
     else
     {
-//        _signUpDetails.Poplock = @"1";
+        _signUpDetails.driverFeature = @"1";
         [mBut setSelected:YES];
         
         

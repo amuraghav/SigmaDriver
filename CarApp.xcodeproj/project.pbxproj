@@ -1962,7 +1962,7 @@
 				ORGANIZATIONNAME = ons;
 				TargetAttributes = {
 					C29B14DD18FFBEF1006979C7 = {
-						DevelopmentTeam = MMVGVUJYAG;
+						DevelopmentTeam = 2P9N9P2QS2;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1973,7 +1973,7 @@
 						};
 					};
 					C29B14FE18FFBEF1006979C7 = {
-						DevelopmentTeam = MMVGVUJYAG;
+						DevelopmentTeam = 2P9N9P2QS2;
 						TestTargetID = C29B14DD18FFBEF1006979C7;
 					};
 				};
@@ -2395,8 +2395,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2414,7 +2414,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "88d16ec6-c834-4bbc-a966-2b20e5a295f5";
+				PROVISIONING_PROFILE = "760f4e04-6132-45b2-ba26-be827dbc703f";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2436,8 +2436,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2448,7 +2448,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "88d16ec6-c834-4bbc-a966-2b20e5a295f5";
+				PROVISIONING_PROFILE = "760f4e04-6132-45b2-ba26-be827dbc703f";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2461,9 +2461,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = CarApp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				DEVELOPMENT_TEAM = MMVGVUJYAG;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				DEVELOPMENT_TEAM = 2P9N9P2QS2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2478,10 +2478,10 @@
 				GCC_PREFIX_HEADER = "Doctor/CarApp-Prefix.pch";
 				INFOPLIST_FILE = "Doctor/CarApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appypie.appypie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CustomAppsTeam.CustomAppsTeam;
 				PRODUCT_NAME = CarApp;
-				PROVISIONING_PROFILE = "88d16ec6-c834-4bbc-a966-2b20e5a295f5";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "760f4e04-6132-45b2-ba26-be827dbc703f";
+				PROVISIONING_PROFILE_SPECIFIER = CustomMobileAppsTeam;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2494,9 +2494,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = CarApp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				DEVELOPMENT_TEAM = MMVGVUJYAG;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				DEVELOPMENT_TEAM = 2P9N9P2QS2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2511,9 +2511,9 @@
 				GCC_PREFIX_HEADER = "Doctor/CarApp-Prefix.pch";
 				INFOPLIST_FILE = "Doctor/CarApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appypie.appypie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CustomAppsTeam.CustomAppsTeam;
 				PRODUCT_NAME = CarApp;
-				PROVISIONING_PROFILE = "88d16ec6-c834-4bbc-a966-2b20e5a295f5";
+				PROVISIONING_PROFILE = "760f4e04-6132-45b2-ba26-be827dbc703f";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -2525,9 +2525,9 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				DEVELOPMENT_TEAM = MMVGVUJYAG;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				DEVELOPMENT_TEAM = 2P9N9P2QS2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2541,7 +2541,7 @@
 				);
 				INFOPLIST_FILE = "DoctorTests/CarAppTests-Info.plist";
 				PRODUCT_NAME = CarAppTests;
-				PROVISIONING_PROFILE = "88d16ec6-c834-4bbc-a966-2b20e5a295f5";
+				PROVISIONING_PROFILE = "760f4e04-6132-45b2-ba26-be827dbc703f";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarApp.app/CarApp";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -2552,9 +2552,9 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ons Interactive Solutions Private Limited";
-				DEVELOPMENT_TEAM = MMVGVUJYAG;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ravinesh Raj (K2TFWDRZJF)";
+				DEVELOPMENT_TEAM = 2P9N9P2QS2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2564,7 +2564,7 @@
 				GCC_PREFIX_HEADER = "Doctor/CarApp-Prefix.pch";
 				INFOPLIST_FILE = "DoctorTests/CarAppTests-Info.plist";
 				PRODUCT_NAME = CarAppTests;
-				PROVISIONING_PROFILE = "88d16ec6-c834-4bbc-a966-2b20e5a295f5";
+				PROVISIONING_PROFILE = "760f4e04-6132-45b2-ba26-be827dbc703f";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarApp.app/CarApp";
 				WRAPPER_EXTENSION = xctest;
 			};

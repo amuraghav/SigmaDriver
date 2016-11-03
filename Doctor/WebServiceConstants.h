@@ -80,7 +80,7 @@ extern NSString *kSMOtp;
 extern NSString *kSMStripeAccount ;
 extern NSString *kSMStripeConnect ;
 extern NSString *kSMentStripeJson ;
-
+extern NSString *kSMPSignupDriverFeature;
 //Request Params For Login
 
 extern NSString *kSMPLoginEmail;

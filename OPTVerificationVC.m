@@ -108,7 +108,6 @@
     NSString *postCode = _signUpDetails.postCode;
     NSInteger cartype = 1;//[_selectedCarType.company_id integerValue];
     NSString*  isPopLockstr = _signUpDetails.Poplock ;
-    
     //NSInteger carSeatingCapacity = _selectedCapacity;
     
     NSString *optCode = OtpTextfield.text;
@@ -148,6 +147,7 @@
                                      signupPhoneno,kSMPSignUpMobile,
                                      taxNumber,kSMPSignupTaxNumber,
                                      postCode,kSMPSignUpZipCode,
+                                     _signUpDetails.driverFeature,kSMPSignupDriverFeature,
                                      [[NSUserDefaults standardUserDefaults] objectForKey:kPMDDeviceIdKey],kSMPSignUpDeviceId,
                                      [NSNumber numberWithInt:cartype],kSMPSignupCompneyId,
                                      pushToken,kSMPgetPushToken,

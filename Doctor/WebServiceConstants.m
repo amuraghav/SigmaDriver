@@ -74,6 +74,7 @@ NSString *kSMPSignUpCarType                    = @"ent_service_type";
 NSString *kSMPSignupCompneyId                  = @"ent_comp_id";
 NSString *kSMPSignupTaxNumber                  = @"ent_tax_num";
 NSString *kSMPSignupCompneyname                = @"ent_comp_name";
+NSString *kSMPSignupDriverFeature              = @"driving_feature";
 
 NSString *kSMPoplock                           = @"ent_pop_lock";
 NSString *kSMOtp                               = @"ent_otp";
