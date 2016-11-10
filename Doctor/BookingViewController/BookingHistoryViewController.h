@@ -31,6 +31,9 @@
     IBOutlet UILabel *lblAmount;
     IBOutlet UIView *bottomView;
 
+    IBOutlet UILabel *serviceTaxLabel;
+    IBOutlet UILabel *totalFareLabel;
+    IBOutlet UILabel *discountLabel;
   
 }
 @property(nonatomic,strong)NSString *IspopLock;

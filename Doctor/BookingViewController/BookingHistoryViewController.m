@@ -159,7 +159,7 @@
 
 -(void)sendRequestToFinishBooking{
     NSLog(@"%f%f%f%f",_textFeildBillAmount.frame.origin.x,_textFeildBillAmount.frame.origin.y,_textFeildBillAmount.frame.size.width,_textFeildBillAmount.frame.size.height);
-    if (_textFeildBillAmount.text.length == 0 || [_textFeildBillAmount.text isEqualToString:@"$ 0"]) {
+    if (totalFareLabel.text.length == 0 || [_textFeildBillAmount.text isEqualToString:@"$ 0"]) {
         [Helper showAlertWithTitle:@"Alert" Message:@"You forget to raise bill. Please enter the bill amount."];
         return;
     }
@@ -175,7 +175,7 @@
     
   //  NSString *currency = [NSString stringWithFormat:@"%@ ",[Helper getCurrencyUnit]];
         NSString *currency = @"$";
-    NSString *amountString = [_textFeildBillAmount.text stringByReplacingOccurrencesOfString:currency withString:@""];
+    NSString *amountString = [totalFareLabel.text stringByReplacingOccurrencesOfString:currency withString:@""];
     
     float amount = [amountString floatValue];
     
@@ -363,7 +363,7 @@
                 
                   _textFeildBillAmount.text=[NSString stringWithFormat:@"%@%@",symbol,response[@"fare"]];
                 
-                  _textFeildDiscountAmount.text=[NSString stringWithFormat:@"%@%@",symbol,response[@"discount"]];
+//                  _textFeildDiscountAmount.text=[NSString stringWithFormat:@"%@%@",symbol,response[@"discount"]];
 //                [Helper setToLabel:lblAmount Text:[NSString stringWithFormat:@"%@ %@",[Helper getCurrencyUnit],response[@"fare"]] WithFont:Robot_Bold FSize:30 Color:UIColorFromRGB(0x000000)];
             }
             else {
@@ -380,9 +380,11 @@
 //            }
 //            [Helper setToLabel:lblTotalTime Text:[NSString stringWithFormat:@"%ldH : %ldM ",durations,mint] WithFont:Robot_Regular FSize:13 Color:UIColorFromRGB(0x000000)];
             
-             _textFeildBillAmount.text=[NSString stringWithFormat:@"%@%@",symbol,response[@"fare"]];
+             _textFeildBillAmount.text=[NSString stringWithFormat:@"$%0.02f",[response[@"base_fare_amount"] floatValue]];
             
-             _textFeildDiscountAmount.text=[NSString stringWithFormat:@"%@%@",symbol,response[@"discount"]];
+             discountLabel.text=[[NSString stringWithFormat:@"$%0.02f",[response[@"discount"] floatValue]] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] ;
+            serviceTaxLabel.text = [NSString stringWithFormat:@"$%0.02f",[response[@"service_tax"] floatValue]];
+                      totalFareLabel.text = [NSString stringWithFormat:@"$%0.02f",[response[@"total_amount"] floatValue]];
             //pickuptime
             NSDateFormatter *df = [self serverDateFormatter];
             NSDate *pickupTime = [df dateFromString:response[@"pickupDt"]];
